@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% set canonical = '/categories/' ~ cat.slug ~ '/' %}
+{% block content %}
+  <h1 style="color:#f1f5f9;margin:12px 0 8px">{{ cat.name }} Deals Under £100</h1>
+  <div class="grid">
+    {% for d in deals %}
+      {% include 'product_card.html' %}
+    {% endfor %}
+    {% if deals|length == 0 %}
+      <p style="color:#cbd5e1">No fresh deals right now. Check back soon.</p>
+    {% endif %}
+  </div>
+{% endblock %}

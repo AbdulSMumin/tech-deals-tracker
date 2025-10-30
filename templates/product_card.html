@@ -1,0 +1,13 @@
+<div class="card">
+  <img src="{{ d.image }}" alt="{{ d.title }}" loading="lazy" />
+  <h3 style="font-size:16px;color:#e5e7eb;margin:8px 0">{{ d.title }}</h3>
+  <div style="display:flex;align-items:center;gap:8px;color:#93c5fd">
+    <span class="price">£{{ '%.2f' % d.price }}</span>
+    {% if d.list_price %}<span class="strike">£{{ '%.2f' % d.list_price }}</span>{% endif %}
+    {% if d.discount_pct %}<span class="badge">-{{ d.discount_pct }}%</span>{% endif %}
+  </div>
+  <div style="margin-top:10px;display:flex;gap:8px;justify-content:space-between">
+    <a class="btn" href="{{ d.url }}" rel="nofollow sponsored" target="_blank">View Deal</a>
+    <span class="badge">{{ d.merchant|capitalize }}</span>
+  </div>
+</div>

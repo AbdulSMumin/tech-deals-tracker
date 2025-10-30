@@ -1,0 +1,37 @@
+site:
+  name: "Tech Deals Under £100"
+  base_url: "${SITE_BASE_URL}"
+  brand: "Tech Deals Tracker"
+  timezone: "Europe/London"
+  currency: "GBP"
+  max_age_hours: 72
+  update_interval_hours: 4
+  max_homepage: 30
+  categories:
+    - slug: headsets
+      name: Headsets
+      keywords: [headset, headphones, earbuds, earphones]
+    - slug: keyboards
+      name: Keyboards
+      keywords: [keyboard, mechanical keyboard]
+    - slug: ssds
+      name: SSDs
+      keywords: [ssd, solid state drive]
+    - slug: mice
+      name: Mice
+      keywords: [mouse, gaming mouse]
+
+filters:
+  max_price: 100
+  min_discount_pct: 20
+  exclude_phrases: ["refurbished", "used", "open box"]
+
+merchants:
+  - name: awin
+    enabled: false
+  - name: amazon
+    enabled: false
+  - name: ebay
+    enabled: false
+  - name: mock_local
+    enabled: true

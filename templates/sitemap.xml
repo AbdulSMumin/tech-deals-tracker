@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>{{ cfg.site.base_url }}/</loc></url>
+  {% for c in cfg.site.categories %}
+  <url><loc>{{ cfg.site.base_url }}/categories/{{ c.slug }}/</loc></url>
+  {% endfor %}
+</urlset>

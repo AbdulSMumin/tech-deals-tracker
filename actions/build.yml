@@ -1,0 +1,40 @@
+name: Build & Deploy (4h)
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'
+  workflow_dispatch: {}
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Fetch → Curate → Build
+        env:
+          AWIN_API_KEY: ${{ secrets.AWIN_API_KEY }}
+          AWIN_ADVERTISER_IDS: ${{ secrets.AWIN_ADVERTISER_IDS }}
+          AMAZON_ACCESS_KEY: ${{ secrets.AMAZON_ACCESS_KEY }}
+          AMAZON_SECRET_KEY: ${{ secrets.AMAZON_SECRET_KEY }}
+          AMAZON_PARTNER_TAG: ${{ secrets.AMAZON_PARTNER_TAG }}
+          EBAY_APP_ID: ${{ secrets.EBAY_APP_ID }}
+          SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
+        run: |
+          python scripts/fetch_deals.py
+          python scripts/curate_deals.py
+          python scripts/build_site.py
+          python scripts/generate_digest.py
+      - name: Upload artifact (optional)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
