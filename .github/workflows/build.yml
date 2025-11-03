@@ -1,0 +1,48 @@
+name: Build (every 4h + on push)
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'        # every 4 hours
+  workflow_dispatch: {}           # manual run button
+  push:
+    branches: [ master ]          # your repo uses 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Fetch → Curate → Build → Digest
+        env:
+          # We’ll add real keys later. They can be empty for now.
+          SITE_BASE_URL: ${{ secrets.SITE_BASE_URL }}
+          AWIN_API_KEY: ${{ secrets.AWIN_API_KEY }}
+          AWIN_ADVERTISER_IDS: ${{ secrets.AWIN_ADVERTISER_IDS }}
+          AMAZON_ACCESS_KEY: ${{ secrets.AMAZON_ACCESS_KEY }}
+          AMAZON_SECRET_KEY: ${{ secrets.AMAZON_SECRET_KEY }}
+          AMAZON_PARTNER_TAG: ${{ secrets.AMAZON_PARTNER_TAG }}
+          EBAY_APP_ID: ${{ secrets.EBAY_APP_ID }}
+        run: |
+          python -m scripts.fetch_deals
+          python -m scripts.curate_deals
+          python -m scripts.build_site
+          python -m scripts.generate_digest
+
+      # For Day 2 we just save the site output; Day 3 = deploy hosting
+      - name: Upload built site as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: site
