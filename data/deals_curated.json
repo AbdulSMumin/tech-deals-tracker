@@ -1,1 +1,66 @@
-[]
+[
+  {
+    "id": "mock:3",
+    "title": "Corsair K55 RGB Keyboard",
+    "merchant": "mock",
+    "url": "#",
+    "price": 24.99,
+    "list_price": 49.99,
+    "discount_pct": 50,
+    "image": "https://images.example/k55.jpg",
+    "category": "keyboards",
+    "timestamp": "2025-11-03T08:14:07Z",
+    "meta": {
+      "rating": 4.3,
+      "reviews": 11021
+    }
+  },
+  {
+    "id": "mock:2",
+    "title": "HyperX Cloud Stinger 2",
+    "merchant": "mock",
+    "url": "#",
+    "price": 34.99,
+    "list_price": 59.99,
+    "discount_pct": 42,
+    "image": "https://images.example/stinger2.jpg",
+    "category": "other",
+    "timestamp": "2025-11-03T08:14:07Z",
+    "meta": {
+      "rating": 4.4,
+      "reviews": 9121
+    }
+  },
+  {
+    "id": "mock:1",
+    "title": "Kingston NV2 500GB NVMe SSD",
+    "merchant": "mock",
+    "url": "#",
+    "price": 29.99,
+    "list_price": 49.99,
+    "discount_pct": 40,
+    "image": "https://images.example/nv2.jpg",
+    "category": "ssds",
+    "timestamp": "2025-11-03T08:14:07Z",
+    "meta": {
+      "rating": 4.5,
+      "reviews": 15421
+    }
+  },
+  {
+    "id": "mock:0",
+    "title": "Logitech G203 Wired Gaming Mouse",
+    "merchant": "mock",
+    "url": "#",
+    "price": 18.99,
+    "list_price": 29.99,
+    "discount_pct": 37,
+    "image": "https://images.example/g203.jpg",
+    "category": "mice",
+    "timestamp": "2025-11-03T08:14:07Z",
+    "meta": {
+      "rating": 4.6,
+      "reviews": 2789
+    }
+  }
+]

@@ -1,7 +1,7 @@
 import os, json, yaml
 from pathlib import Path
-from utils import write_json
-from merchants import mock_local, awin, amazon, ebay
+from .utils import write_json
+from .merchants import mock_local, awin, amazon, ebay
 
 ADAPTERS = {
     'mock_local': mock_local,

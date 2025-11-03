@@ -1,7 +1,7 @@
 import os, json, yaml
 from pathlib import Path
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from utils import read_json
+from .utils import read_json
 
 ROOT = Path(__file__).resolve().parents[1]
 CFG = yaml.safe_load(open(ROOT / 'config.yml', 'r', encoding='utf-8'))
