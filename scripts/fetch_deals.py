@@ -1,6 +1,6 @@
 import os, json, yaml
 from pathlib import Path
-from .utils import write_json
+from scripts.utils import write_json
 from .merchants import mock_local, awin, amazon, ebay
 
 ADAPTERS = {

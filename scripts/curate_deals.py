@@ -1,6 +1,6 @@
 import json, yaml
 from pathlib import Path
-from .utils import read_json, write_json, pass_filters, score_deal, categorise
+from scripts.utils import read_json, write_json, pass_filters, score_deal, categorise
 
 ROOT = Path(__file__).resolve().parents[1]
 CFG = yaml.safe_load(open(ROOT / 'config.yml', 'r', encoding='utf-8'))
