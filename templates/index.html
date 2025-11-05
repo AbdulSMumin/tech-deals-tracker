@@ -3,6 +3,10 @@
 {% set canonical = '/' %}
 {% block content %}
   <h1 style="color:#f1f5f9;margin:12px 0 8px">Today’s Top {{ deals|length }} Deals Under £100</h1>
+  <p class="subline">
+  Auto-updated every {{ cfg.site.update_interval_hours }} hours • 
+  Last refreshed: {{ cfg.site.last_updated | format_datetime }}
+  </p>
   <p style="color:#cbd5e1;margin-top:0">Sorted by biggest real‑world savings and freshness.</p>
   <div class="grid">
     {% for d in deals %}
