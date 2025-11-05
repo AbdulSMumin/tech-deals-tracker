@@ -58,3 +58,28 @@ def categorise(title: str, categories: List[Dict[str, Any]]):
         if any(k.lower() in t for k in c.get('keywords', [])):
             return c['slug']
     return 'other'
+
+# --- Affiliate helpers -------------------------------------------------------
+
+AFFILIATE_TAG = "techdealsuk0a-21"
+
+
+def add_affiliate_tag(url: str) -> str:
+    """
+    If the URL is an Amazon link, append our affiliate tag.
+    Otherwise, return the URL unchanged.
+    """
+    if not url:
+        return url
+
+    # Only touch Amazon links
+    if "amazon." not in url.lower():
+        return url
+
+    # Don't double-tag
+    if "tag=" in url.lower():
+        return url
+
+    # If there's already a query string, use & otherwise use ?
+    sep = "&" if "?" in url else "?"
+    return f"{url}{sep}tag={AFFILIATE_TAG}"

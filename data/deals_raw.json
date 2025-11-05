@@ -9,7 +9,7 @@
     "discount_pct": null,
     "image": "https://images.example/g203.jpg",
     "category": null,
-    "timestamp": "2025-11-03T08:14:07Z",
+    "timestamp": "2025-11-05T12:30:25Z",
     "meta": {
       "rating": 4.6,
       "reviews": 2789
@@ -25,7 +25,7 @@
     "discount_pct": null,
     "image": "https://images.example/nv2.jpg",
     "category": null,
-    "timestamp": "2025-11-03T08:14:07Z",
+    "timestamp": "2025-11-05T12:30:25Z",
     "meta": {
       "rating": 4.5,
       "reviews": 15421
@@ -41,7 +41,7 @@
     "discount_pct": null,
     "image": "https://images.example/stinger2.jpg",
     "category": null,
-    "timestamp": "2025-11-03T08:14:07Z",
+    "timestamp": "2025-11-05T12:30:25Z",
     "meta": {
       "rating": 4.4,
       "reviews": 9121
@@ -57,7 +57,7 @@
     "discount_pct": null,
     "image": "https://images.example/k55.jpg",
     "category": null,
-    "timestamp": "2025-11-03T08:14:07Z",
+    "timestamp": "2025-11-05T12:30:25Z",
     "meta": {
       "rating": 4.3,
       "reviews": 11021
