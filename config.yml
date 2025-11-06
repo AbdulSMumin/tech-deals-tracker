@@ -34,4 +34,4 @@ merchants:
   - name: ebay
     enabled: false
   - name: mock_local
-    enabled: true
+    enabled: false

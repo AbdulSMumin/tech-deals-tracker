@@ -1,67 +1,37 @@
 [
   {
-    "id": "mock:3",
-    "title": "Corsair K55 RGB Keyboard",
-    "merchant": "mock",
-    "url": "#",
-    "price": 24.99,
-    "list_price": 49.99,
-    "discount_pct": 50,
-    "image": "https://images.example/k55.jpg",
-    "category": "keyboards",
-    "timestamp": "2025-11-05T12:30:25Z",
-    "meta": {
-      "rating": 4.3,
-      "reviews": 11021
-    }
-  },
-  {
-    "id": "mock:2",
-    "title": "HyperX Cloud Stinger 2",
-    "merchant": "mock",
-    "url": "#",
-    "price": 34.99,
-    "list_price": 59.99,
-    "discount_pct": 42,
-    "image": "https://images.example/stinger2.jpg",
-    "category": "other",
-    "timestamp": "2025-11-05T12:30:25Z",
+    "id": "amazon:gaming-headset-b09dpr2lzw",
+    "title": "Gaming Headset – Surround Sound Headphones with Mic & RGB Breathing Lights (Blue)",
+    "merchant": "amazon",
+    "url": "https://www.amazon.co.uk/Headset-Surround-Headphones-Breathing-Adjustable-blue/dp/B09DPR2LZW?tag=techdealsuk0a-21",
+    "price": 15.98,
+    "list_price": 29.99,
+    "image": "https://m.media-amazon.com/images/I/71fLhrC2byL._AC_SL1500_.jpg",
+    "category": "headsets",
+    "timestamp": "2025-11-06T10:50:00Z",
     "meta": {
       "rating": 4.4,
-      "reviews": 9121
-    }
+      "reviews": 12130
+    },
+    "manual": true,
+    "discount_pct": 47
   },
   {
-    "id": "mock:1",
-    "title": "Kingston NV2 500GB NVMe SSD",
-    "merchant": "mock",
-    "url": "#",
-    "price": 29.99,
-    "list_price": 49.99,
-    "discount_pct": 40,
-    "image": "https://images.example/nv2.jpg",
-    "category": "ssds",
-    "timestamp": "2025-11-05T12:30:25Z",
-    "meta": {
-      "rating": 4.5,
-      "reviews": 15421
-    }
-  },
-  {
-    "id": "mock:0",
-    "title": "Logitech G203 Wired Gaming Mouse",
-    "merchant": "mock",
-    "url": "#",
-    "price": 18.99,
+    "id": "amazon:logitech-k270",
+    "title": "Logitech K270 Wireless Keyboard – Full-Size, 2.4GHz, Plug-and-Play USB Receiver, Long Battery Life",
+    "merchant": "amazon",
+    "url": "https://www.amazon.co.uk/Logitech-Wireless-Keyboard-Windows-Connection/dp/B00CL6353A?tag=techdealsuk0a-21",
+    "price": 19.99,
     "list_price": 29.99,
-    "discount_pct": 37,
-    "image": "https://images.example/g203.jpg",
-    "category": "mice",
-    "timestamp": "2025-11-05T12:30:25Z",
+    "image": "https://m.media-amazon.com/images/I/71qCK8v+fVL._AC_SL1500_.jpg",
+    "category": "keyboards",
+    "timestamp": "2025-11-06T10:45:00Z",
     "meta": {
       "rating": 4.6,
-      "reviews": 2789
-    }
+      "reviews": 32000
+    },
+    "manual": true,
+    "discount_pct": 33
   },
   {
     "id": "amazon:logitech-m185",
@@ -77,6 +47,7 @@
     "meta": {
       "rating": 4.5,
       "reviews": 118193
-    }
+    },
+    "manual": true
   }
 ]
