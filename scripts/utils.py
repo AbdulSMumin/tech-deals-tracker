@@ -50,6 +50,10 @@ def score_deal(d):
         pass
     reviews = (d.get('meta', {}) or {}).get('reviews', 0)
     review_boost = min(5, math.log1p(reviews))
+        # Manual deals get a slight boost to ensure visibility
+    if d.get("manual"):
+        return 100 + d.get('discount_pct', 0) + recency_boost + review_boost
+    # Normal deals score by discount, recency, and reviews
     return d.get('discount_pct', 0) + recency_boost + review_boost
 
 def categorise(title: str, categories: List[Dict[str, Any]]):
