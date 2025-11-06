@@ -13,9 +13,10 @@
     "meta": {
       "rating": 4.5,
       "reviews": 118193
-    }
+    },
+    "manual": true
   },
-    
+  
   {
     "id": "mock:0",
     "title": "Logitech G203 Wired Gaming Mouse",
