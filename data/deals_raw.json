@@ -1,5 +1,22 @@
 [
   {
+    "id": "amazon:logitech-m185",
+    "title": "Logitech M185 Wireless Mouse – 2.4GHz with USB Mini Receiver, 12-Month Battery Life, 1000 DPI Optical Tracking, Ambidextrous Design – Grey",
+    "merchant": "amazon",
+    "url": "https://www.amazon.co.uk/Logitech-Wireless-Windows-Ambidextrous-Design/dp/B00552K0GM?th=1&linkCode=ll1&tag=techdealsuk0a-21&linkId=6b098ba42c3e248201967984591df619&language=en_GB&ref_=as_li_ss_tl",
+    "price": 7.15,
+    "list_price": 8.90,
+    "discount_pct": 20,
+    "image": "https://m.media-amazon.com/images/I/61gKq+JH5nL._AC_SL1500_.jpg",
+    "category": "mice",
+    "timestamp": "2025-11-06T10:30:00Z",
+    "meta": {
+      "rating": 4.5,
+      "reviews": 118193
+    }
+  },
+    
+  {
     "id": "mock:0",
     "title": "Logitech G203 Wired Gaming Mouse",
     "merchant": "mock",
