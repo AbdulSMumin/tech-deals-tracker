@@ -17,14 +17,14 @@
       display: flex;
       flex-direction: column;
     }
-  
+
     .wrap {
-      flex: 1; /* pushes footer down */
+      flex: 1;
       max-width: 1100px;
       margin: 0 auto;
       padding: 24px;
     }
-  
+
     header {
       display: flex;
       justify-content: space-between;
@@ -33,35 +33,35 @@
     }
 
     .subline {
-  font-size: 14px;
-  color: #94a3b8; /* soft grey-blue tone */
-  margin-top: -8px;
-  margin-bottom: 28px;
-  letter-spacing: 0.1px;
+      font-size: 14px;
+      color: #94a3b8;
+      margin-top: -8px;
+      margin-bottom: 28px;
+      letter-spacing: 0.1px;
     }
-  
+
     a {
       color: #60a5fa;
       text-decoration: none;
     }
-  
+
     .grid {
       display: grid;
       gap: 16px;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     }
-  
+
     .card {
       background: #0f172a;
       border: 1px solid #1f2a44;
       border-radius: 12px;
       padding: 14px;
     }
-  
+
     .price {
       font-weight: 700;
     }
-  
+
     .badge {
       font-size: 12px;
       padding: 2px 8px;
@@ -69,34 +69,33 @@
       background: #1f2a44;
       color: #bcd;
     }
-  
+
     .topbar {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
       margin: 6px 0 18px;
     }
-  
+
     .topbar a {
       padding: 6px 10px;
       border: 1px solid #1f2a44;
       border-radius: 999px;
     }
-  
+
     footer {
       font-size: 13px;
       text-align: center;
-      color: #64748b; /* subtle slate grey */
+      color: #64748b;
       border-top: 1px solid rgba(148, 163, 184, 0.15);
       padding: 20px 0 14px;
-      margin-top: auto; /* ensures footer sticks to bottom */
       background: linear-gradient(to top, rgba(11, 18, 32, 0.98), rgba(11, 18, 32, 0.95));
     }
-  
+
     footer p {
       margin: 6px 0;
     }
-  
+
     img {
       width: 100%;
       height: 160px;
@@ -105,21 +104,23 @@
       border: 1px solid #1f2a44;
       background: #0b1220;
     }
-  
+
     .strike {
       opacity: 0.7;
       text-decoration: line-through;
     }
-  
+
     .btn {
       display: inline-block;
       padding: 8px 12px;
       border-radius: 10px;
       border: 1px solid #2b3a60;
     }
-  </style>    
+  </style>
 </head>
+
 <body>
+
   <div class="wrap">
     <header>
       <a href="/" style="font-weight:800;color:#e2e8f0">{{ cfg.site.brand }}</a>
@@ -132,12 +133,13 @@
     </header>
 
     {% block content %}{% endblock %}
-
-    <footer>
-      <p>Due to updates occuring every {{ cfg.site.update_interval_hours }} hours. Prices and availability may change.</p>
-      <p>Tech Deals Tracker is a participant in the Amazon Associates Program and may earn commissions from qualifying purchases.</p>
-      <p>© 2025 Tech Deals Tracker</p>
-    </footer>
   </div>
+
+  <footer>
+    <p>Updated every {{ cfg.site.update_interval_hours }} hours. Prices and availability may change.</p>
+    <p>Tech Deals Tracker is a participant in the Amazon Associates Program and may earn commissions from qualifying purchases.</p>
+    <p>© 2025 Tech Deals Tracker</p>
+  </footer>
+
 </body>
 </html>

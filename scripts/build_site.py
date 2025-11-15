@@ -28,15 +28,45 @@ env.filters["format_datetime"] = format_datetime
 site_out = ROOT / 'site'
 (site_out / 'categories').mkdir(parents=True, exist_ok=True)
 
+# Load curated deals
 curated = read_json(str(ROOT / 'data' / 'deals_curated.json'), [])
 
-home_deals = curated[: CFG['site']['max_homepage']]
+
+# --- Sorting options for homepage -------------------------------------------
+def sort_deals(deals, key: str):
+    if key == "discount":
+        # Highest discount first
+        return sorted(deals, key=lambda d: d.get("discount_pct", 0), reverse=True)
+    elif key == "reviews":
+        # Most reviews first
+        return sorted(
+            deals,
+            key=lambda d: (d.get("meta", {}) or {}).get("reviews", 0),
+            reverse=True,
+        )
+    elif key == "new":
+        # Newest timestamp first
+        return sorted(
+            deals,
+            key=lambda d: d.get("timestamp", ""),
+            reverse=True,
+        )
+    # Fallback: no special ordering
+    return deals
+
+
+# Default homepage sort: biggest discounts
+sorted_home = sort_deals(curated, "discount")
+home_deals = sorted_home[: CFG['site']['max_homepage']]
+
+# --- Render homepage --------------------------------------------------------
 index_tpl = env.get_template('index.html')
 (site_out / 'index.html').write_text(
     index_tpl.render(cfg=CFG, deals=home_deals),
     encoding='utf-8'
 )
 
+# --- Render category pages --------------------------------------------------
 cat_tpl = env.get_template('category.html')
 for c in CFG['site']['categories']:
     slug = c['slug']
@@ -48,6 +78,7 @@ for c in CFG['site']['categories']:
         encoding='utf-8'
     )
 
+# --- Render sitemap and robots ---------------------------------------------
 sm_tpl = env.get_template('sitemap.xml')
 (site_out / 'sitemap.xml').write_text(sm_tpl.render(cfg=CFG), encoding='utf-8')
 
