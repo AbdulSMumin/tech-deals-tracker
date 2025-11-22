@@ -1,26 +1,116 @@
 {% extends 'base.html' %}
-{% set title = "Today’s Top Deals Under £100" %}
+{% set title = "Best Tech Deals Under £100 – Updated Every " ~ cfg.site.update_interval_hours ~ " Hours" %}
 {% set canonical = "/" %}
 
 {% block content %}
 
-<h1 style="color:#f1f5f9; margin:12px 0 8px;">
-  Today’s Top {{ deals|length }} Deals Under £100
-</h1>
+{% set total_deals = deals | length %}
+{% set top_picks = deals[:6] %}
+{% set remaining_deals = deals[6:] %}
 
-<p class="subline">
-  Auto-updated every {{ cfg.site.update_interval_hours }} hours •
-  Last refreshed: {{ cfg.site.last_updated | format_datetime }}
-</p>
+<section class="hero">
+  <div class="hero-main">
+    <div class="hero-kicker">
+      <span class="hero-kicker-dot"></span>
+      Live under-£100 tech deals
+    </div>
+    <h1 class="hero-title">
+      The best tech deals under £100, refreshed every {{ cfg.site.update_interval_hours }} hours.
+    </h1>
+    <p class="hero-text">
+      We scan live listings, surface only the strongest real-world savings, and keep everything under £100.
+      No endless scrolling through junk offers.
+    </p>
 
-<p style="color:#cbd5e1; margin-top:0;">
-  Sorted by biggest real-world savings and freshness.
-</p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-label">Deals live now</span>
+        <span class="stat-value">{{ total_deals }}</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Refresh cycle</span>
+        <span class="stat-value">{{ cfg.site.update_interval_hours }} hours</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Last refreshed</span>
+        <span class="stat-value">{{ cfg.site.last_updated | format_datetime }}</span>
+      </div>
+    </div>
+  </div>
 
-<div class="grid">
-  {% for d in deals %}
-    {% include 'product_card.html' %}
-  {% endfor %}
-</div>
+  <aside class="hero-aside">
+    <div class="info-card">
+      <h2>How this works</h2>
+      <ul>
+        <li>We pull fresh tech deals from trusted merchants.</li>
+        <li>Anything over £100 or with weak savings is filtered out.</li>
+        <li>You click through to buy directly from the retailer.</li>
+      </ul>
+      <p style="margin-top:8px;">
+        Some links are affiliate links, which help keep this tracker running at no extra cost to you.
+      </p>
+    </div>
+  </aside>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <div>
+      <h2>Browse by category</h2>
+      <p>Jump straight into the type of tech you care about most.</p>
+    </div>
+    <a class="pill-link" href="/sitemap.xml">View all pages →</a>
+  </div>
+
+  <div class="category-grid">
+    {% for c in cfg.site.categories %}
+      <a class="category-card" href="/categories/{{ c.slug }}/">
+        <div class="category-name">{{ c.name }}</div>
+        {% if c.tagline is defined and c.tagline %}
+          <p class="category-desc">{{ c.tagline }}</p>
+        {% else %}
+          <p class="category-desc">Best {{ c.name | lower }} under £100, updated regularly.</p>
+        {% endif %}
+        <div class="category-meta">
+          View deals →
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+{% if top_picks %}
+<section class="section">
+  <div class="section-header">
+    <div>
+      <h2>Today’s top picks</h2>
+      <p>Standout under-£100 deals based on savings and freshness.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    {% for d in top_picks %}
+      {% include 'product_card.html' %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{% if remaining_deals %}
+<section class="section">
+  <div class="section-header">
+    <div>
+      <h2>All latest deals</h2>
+      <p>Sorted by our scoring so the best savings appear first.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    {% for d in remaining_deals %}
+      {% include 'product_card.html' %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
 
 {% endblock %}
